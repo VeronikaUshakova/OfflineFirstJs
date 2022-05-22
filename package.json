@@ -1,0 +1,24 @@
+{
+  "name": "07-offline-first",
+  "version": "1.0.0",
+  "description": "In this task you need to build a wrapper library to hold data offline, that supports different storage technologies and provide infrastructure to build it.",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp"
+  },
+  "author": "Veronika Ushakova",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "browser-sync": "^2.27.4",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-rename": "^1.1.0"
+  }
+}

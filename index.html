@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Infrastructure of web application</title>
+    <link rel="stylesheet" href="./dist/css/storage.min.css">
+
+</head>
+<body>
+
+<script src="./dist/js/bundle-min.js"></script>
+<script>
+    Storage.save('myKey1', { prop: 'someObjProp' }, Storage.LOCAL_STORAGE, "hello"); // saves object to localStorage
+
+    Storage.get('myKey1'); // returns { prop: 'someObjProp' } (object) from localStorage
+
+    const syncReturn = Storage.get('myKey1', Storage.LOCAL_STORAGE, (value) => {
+        console.log('myKey1', value); // asynchronously logs 'myKey1' and { prop: 'someObjProp' } (after console.log(syncReturn) was executed)
+    });
+    console.log(syncReturn); // logs { prop: 'someObjProp' } before `callback` is called
+
+    //Storage.save('myKey2', 'value', Storage.INDEXED_DB); // throws an exception - callback is required
+
+    Storage.save('myKey2', 'val', Storage.INDEXED_DB, () => { console.log('saved'); }); // `saved` is logged into console after value is successfuly saved
+
+    //Storage.get('myKey2', Storage.INDEXED_DB); // throws exception -  callback is required
+    Storage.get('myKey2', Storage.INDEXED_DB, (value) => { console.log('myKey2', value); }); // asynchronously logs 'myKey2' and 'value'
+</script>
+
+</body>
+</html>
